@@ -1,0 +1,304 @@
+/*#Aqui ele ajustará para deixar alinhado os icones para deixar mais centralizado quando ajustar o tamanho da tela, para ele não ficar grudando na esquerda e na direita*/
+/*#O container irá ficar resposável por lidar com o alinhamento do nosso código*/
+.container{
+  max-width: 1440px;
+  margin: 0 auto; /*#Para ele sempre manter o alinhamento centralizado*/
+  padding: 0 8px;
+}
+
+/*#BG HOME, é onde ficará a imagem de fundo*/
+
+.bg-home{
+  position: relative;
+}
+
+.bg-home::before{
+  content: ''; /*#Ou seja aqui não terá nenhum conteúdo*/
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #030a11), url("../assets//foto-academia01.jpg"); /*#O gradiente é porque vai ser uma imagem que se funde com outra imagem*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  opacity: 0.9;
+}
+
+//------------------
+
+// HERO ------------
+
+// Como CSS padrão não é possível fazer isso, encadear dentro de uma classe uma teg que eu tenho dentro do main class do index ----
+.hero{
+color: $white-normal;
+min-height: 80vh;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 14px;
+
+h1{
+  text-align: center;
+  line-height: 150%;
+  max-width: 940px;
+  font-size: 46px;
+}
+
+p{
+  text-align: center;
+  margin:14px 0;
+}
+}
+
+.button-contact{
+padding: 14px 28px;
+color: $white-normal;
+background-color: $red-normal;
+border: 0;
+font-size: 18px;
+font-weight: 600;
+margin: 14px 0;
+}
+
+.button-contact:hover{
+animation: scaleButton 0.8s alternate infinite;
+}
+
+@keyframes scaleButton {
+from{
+  transform: scale(1);
+}
+to{
+  transform: scale(1.07);
+}
+}
+
+@media screen and (max-width: 768px){
+.hero{
+  min-height: 60vh;
+
+  h1{
+    font-size: 34px;
+    padding: 0 14px;
+    width: 100%;
+  }
+
+  p{
+    font-size: 14px;
+  }
+  
+}
+}
+
+@media screen and (max-width: 480px){
+.hero h1{
+  font-size: 24px;
+}
+}
+
+// -------------------
+
+//about
+
+.about{
+  background-color: $primary-normal;
+  overflow: hidden; /*Caso passar alguma coisa fora do tamanho aqui ele vai esconder*/
+  color: $white-normal;
+}
+
+.about-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 34px 14px 64px 14px;
+
+
+  img{
+    max-width: 570px;
+  }
+}
+
+.about-content div{
+  flex: 1;
+
+}
+
+.about-description{
+  h2{
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+  p{
+    margin-bottom: 14px;
+    line-height: 150%;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .about-content{
+    flex-direction: colum;
+  }
+}
+
+// ------------------
+
+// SERVICES
+
+
+.services{
+  background-color: $white-normal;
+  color: $black-normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 14px;
+}
+
+.services-content h2{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 14px;
+}
+
+.services-content p{
+  line-height: 150%;
+  margin-bottom: 14px;
+  text-align: center;
+  max-width: 780px;
+}
+
+.haircuts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px; //---Aqui vai ter um espaçamento entre as fotos 
+  padding: 0 44px 34px 44px; //--- Quando a janela ficar menor esse pedding irá aumentar o espaçamento entre as imagens. 
+}
+
+.haircut{
+  flex: 1; //---Está dizendo aqui que cada div, cada imagem na tela se encaixem certinho sem precisar ficar passando a largura de cada item.
+  display: flex;
+  flex-direction: column; //--- Ou seja, deixar um item a baixo do outro.
+  background-color: $white-normal;
+  border-radius: 8px; //--- Deixa a borda arredondada.
+  box-shadow: 0px --1px 17px --4px rgba(0,0,0, 0.5); //--- Para adicionar sombreamento nas imagens dos serviços. E 0.5 é a opacidade da sombra.
+
+  overflow: hidden; //---Tudo que passar fora, ou seja tudo o que tiver um overflow no nosso elemento vou dar um hidden que vai esconder.
+
+  img{
+    width: 100%;
+    max-width: 354px; //--- Isso vai fizer que o máximo da largura da nossa imagem vai chegar quando a janela ficar maior será 354px.
+    transition: transform 0.2s;
+  }
+}
+
+.haircut img:hover{
+  transform: scale(1.2);
+  z-index: 1; //---Terá uma camada menor.
+}
+
+
+.haircut-info{
+  width: 100%;
+  display: flex;
+  justify-content: space-between; //---Para ficar cada item no seu canto.
+  padding: 14px;
+  background-color: $white-normal;
+  z-index: 99; //---Isso fará que ele tenha uma camada maior do que a z-index 2 sebreponto a imagem.
+}
+
+.haircut-info button{
+  color: $white-normal;
+  background-color: $red-normal;
+  padding: 4px 8px;
+  border:0;
+  cursor: default;
+}
+
+@media screen and (max-width: 768px){
+  .haircuts{
+    flex-direction: column;
+  }
+
+  .haircut img{
+    max-width: 740px;
+  }
+}
+
+//-------
+
+//------- Foteer
+
+.footer{
+  display: flex;
+  flex-direction: column; //---- column vai deixar um abaixo do outro.
+  align-items: center;
+  justify-content: center;
+  padding: 54px 0; //---Faz um distanciamento em cima e embaixo para organizar melhor o código.
+  gap: 24px; //---Para deixar o icones do final do site longe do outro icone do site, dando espaço entre itens.
+  color: $white-normal;
+}
+
+.footer-icons{
+  display: flex;
+  gap: 8px; //---Espaçamento entre os itens de 18px.
+  color: $white-normal;
+}
+
+// --------------------
+// ---- Por padrão o icone e os objetos de um site ele ficam em posições estáticas mas no caso do nosso whatsapp ele precisará acompanhar por onde puxarmos ele continuará, para uma posição fixa flutuando sobre todos os elementos.
+// Botao whatsapp
+
+.btn-whatsapp{
+  position: fixed;
+  bottom: 14px;
+  right: 24px;
+  z-index: 99;
+
+  img{
+    max-width: 74px;
+    transition: transform 0.4; //--- Vai deixar bem lento a transição feita do whatsapp.
+  }
+
+  img:hover{
+    transform: scale(1.1);
+  }
+}
+
+.btn-whatsapp .tooltip-text{
+  visibility: hidden;
+  position: absolute;
+  width: 120px;
+  top: 8px;
+  left: -188%;
+  padding: 6px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: $black-normal;
+  color: $white-normal;
+  opacity: 0;
+  transition: opacity 0.4s;
+
+}
+
+.btn-whatsapp:hover .tooltip-text{ //----Quando passar o mouse em cima ele vai aparecer o texto de agendar o seu horário. Usando o hover ele se tornará visivel.
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px){
+  .btn-whatsapp{
+    img{
+      max-width: 64px;
+    }
+  }
+}

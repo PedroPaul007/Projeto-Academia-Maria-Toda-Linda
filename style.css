@@ -1,0 +1,366 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: o;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+header { /*#Aqui ficará os botões e as interações que teremos com eles*/
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+i {
+  color: #FFF;
+}
+
+.header-icons {
+  display: flex;
+  gap: 14px;
+}
+
+/*#Quando passar o mouse em cima do nosso "a" que é cada icone do programa eu vou acessar a nossa propriedade da teg "i" fazendo os icones mudar para vermelho*/
+.header-icons a:hover i {
+  animation: translateY 0.8s infinite alternate;
+  color: #d1ab00;
+}
+
+@keyframes translateY { /*#Aqui ele cria uma animação padrão para o icone e o translateY é o nome da animação*/
+  from { /*#Onde ela começa*/
+    transform: translateY(0) scale(1); /*#scale 1 é o tamanho original dela */
+  }
+  to { /*#Onde ela vai*/
+    transform: translateY(-8px) scale(1.1); /*#O eixo Y irá subir 8 pixels para cima em uma escala de 1.1*/
+  }
+}
+/*#Aqui ficará a interação que teremos com o botão agendamento7*/
+.header-button {
+  border: 1px solid #FFF;
+  padding: 8px 24px;
+  border-radius: 4px;
+  color: #FFF;
+  background-color: transparent;
+  transition: background-color 0.8s;
+}
+
+.header-button:hover {
+  border: 1px solid #d1ab00;
+  background-color: #d1ab00;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  margin-top: 14px;
+}
+
+/*#Aqui adicionará resposonvidade, ou seja, o programa vai se estabilizar e se organizar quando ele mudar de tela para um celular por exemplo.*/
+/*Então aqui em baixo também quando ele assumir uma largura maxima de 768px ele irá aplicar o estilo que estiver lá dentro*/
+@media screen and (max-width: 768px) {
+  .header-content {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-content i {
+    margin-top: 16px;
+    font-size: 34px;
+  }
+  .header-logo img {
+    width: 400px;
+    margin-top: 46px;
+  }
+  .header-button {
+    display: none;
+  }
+}
+/*#Aqui ele ajustará para deixar alinhado os icones para deixar mais centralizado quando ajustar o tamanho da tela, para ele não ficar grudando na esquerda e na direita*/
+/*#O container irá ficar resposável por lidar com o alinhamento do nosso código*/
+.container {
+  max-width: 1440px;
+  margin: 0 auto; /*#Para ele sempre manter o alinhamento centralizado*/
+  padding: 0 8px;
+}
+
+/*#BG HOME, é onde ficará a imagem de fundo*/
+.bg-home {
+  position: relative;
+}
+
+.bg-home::before {
+  content: ""; /*#Ou seja aqui não terá nenhum conteúdo*/
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #030a11), url("../assets//foto-academia01.jpg"); /*#O gradiente é porque vai ser uma imagem que se funde com outra imagem*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  opacity: 0.9;
+}
+
+.hero {
+  color: #FFF;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+.hero h1 {
+  text-align: center;
+  line-height: 150%;
+  max-width: 940px;
+  font-size: 46px;
+}
+.hero p {
+  text-align: center;
+  margin: 14px 0;
+}
+
+.button-contact {
+  padding: 14px 28px;
+  color: #FFF;
+  background-color: #d1ab00;
+  border: 0;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 14px 0;
+}
+
+.button-contact:hover {
+  animation: scaleButton 0.8s alternate infinite;
+}
+
+@keyframes scaleButton {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+  }
+  .hero h1 {
+    font-size: 34px;
+    padding: 0 14px;
+    width: 100%;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+}
+.about {
+  background-color: #06121e;
+  overflow: hidden; /*Caso passar alguma coisa fora do tamanho aqui ele vai esconder*/
+  color: #FFF;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 34px 14px 64px 14px;
+}
+.about-content img {
+  max-width: 570px;
+}
+
+.about-content div {
+  flex: 1;
+}
+
+.about-description h2 {
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+.about-description p {
+  margin-bottom: 14px;
+  line-height: 150%;
+}
+
+@media screen and (max-width: 768px) {
+  .about-content {
+    flex-direction: colum;
+  }
+}
+.services {
+  background-color: #FFF;
+  color: #232224;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 14px;
+}
+
+.services-content h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 14px;
+}
+
+.services-content p {
+  line-height: 150%;
+  margin-bottom: 14px;
+  text-align: center;
+  max-width: 780px;
+}
+
+.haircuts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 0 44px 34px 44px;
+}
+
+.haircut {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF;
+  border-radius: 8px;
+  box-shadow: 0px --1px 17px --4px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.haircut img {
+  width: 100%;
+  max-width: 354px;
+  transition: transform 0.2s;
+}
+
+.haircut img:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}
+
+.haircut-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  background-color: #FFF;
+  z-index: 99;
+}
+
+.haircut-info button {
+  color: #FFF;
+  background-color: #d1ab00;
+  padding: 4px 8px;
+  border: 0;
+  cursor: default;
+}
+
+@media screen and (max-width: 768px) {
+  .haircuts {
+    flex-direction: column;
+  }
+  .haircut img {
+    max-width: 740px;
+  }
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 0;
+  gap: 24px;
+  color: #FFF;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 8px;
+  color: #FFF;
+}
+
+.btn-whatsapp {
+  position: fixed;
+  bottom: 14px;
+  right: 24px;
+  z-index: 99;
+}
+.btn-whatsapp img {
+  max-width: 74px;
+  transition: transform 0.4;
+}
+.btn-whatsapp img:hover {
+  transform: scale(1.1);
+}
+
+.btn-whatsapp .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  width: 120px;
+  top: 8px;
+  left: -188%;
+  padding: 6px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #232224;
+  color: #FFF;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.btn-whatsapp:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-whatsapp img {
+    max-width: 64px;
+  }
+}
+body {
+  font-family: "Sora", sans-serif;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #06121e;
+}
+
+button {
+  font-family: "Sora", sans sans-serif;
+  cursor: pointer;
+}
+
+svg {
+  width: 100%; /*#ele sempre vai puxar uma width de 100%, para sempre deixar a svg mais fluida*/
+}
+
+img {
+  width: 100%; /*#ele sempre vai deicar a largura padrão da nossa imagem em 100%*/
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: o;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+@import "partials/colors";
+@import "partials/header";
+@import "partials/layout";
+
+body{
+    font-family: "Sora", sans-serif; 
+    width: 100%; 
+    height: 100vh;
+    position: relative;
+
+    background-color: $primary-normal;
+}
+
+button{
+  font-family: "Sora", sans sans-serif;
+  cursor: pointer;
+}
+
+svg{
+  width: 100%; /*#ele sempre vai puxar uma width de 100%, para sempre deixar a svg mais fluida*/
+}
+
+img{
+  width: 100%; /*#ele sempre vai deicar a largura padrão da nossa imagem em 100%*/
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+

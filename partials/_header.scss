@@ -1,0 +1,86 @@
+header{ /*#Aqui ficará os botões e as interações que teremos com eles*/
+    width: 100%;
+}
+
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+i{
+    color: $white-normal;
+}
+
+.header-icons{
+    display: flex;
+    gap: 14px;
+}
+
+/*#Quando passar o mouse em cima do nosso "a" que é cada icone do programa eu vou acessar a nossa propriedade da teg "i" fazendo os icones mudar para vermelho*/
+.header-icons a:hover{ 
+    i{
+        animation: translateY 0.8s infinite alternate;
+        color: $red-light
+    }
+}
+
+@keyframes translateY{ /*#Aqui ele cria uma animação padrão para o icone e o translateY é o nome da animação*/
+    from{ /*#Onde ela começa*/
+    transform: translateY(0) scale(1); /*#scale 1 é o tamanho original dela */
+    }
+    to { /*#Onde ela vai*/
+    transform: translateY(-8px) scale(1.1); /*#O eixo Y irá subir 8 pixels para cima em uma escala de 1.1*/
+    }
+}
+
+
+/*#Aqui ficará a interação que teremos com o botão agendamento7*/
+.header-button{
+    border: 1px solid $white-normal;
+    padding: 8px 24px;
+    border-radius: 4px;
+    color: $white-normal;
+    background-color: transparent;
+    transition: background-color 0.8s;
+}
+
+.header-button:hover{
+    border: 1px solid $red-light;
+    background-color: $red-light;
+}
+
+.header-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    margin-top: 14px;
+}
+
+/*#Aqui adicionará resposonvidade, ou seja, o programa vai se estabilizar e se organizar quando ele mudar de tela para um celular por exemplo.*/
+/*Então aqui em baixo também quando ele assumir uma largura maxima de 768px ele irá aplicar o estilo que estiver lá dentro*/ 
+@media screen and (max-width: 768px){
+    .header-content{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        i{
+            margin-top: 16px;
+            font-size: 34px;
+        }
+    }
+
+
+    .header-logo img{
+        width: 400px;
+        margin-top: 46px;
+    }
+
+    .header-button{
+        display: none;
+    }
+
+}
